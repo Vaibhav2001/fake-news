@@ -187,23 +187,6 @@ cleaned.text = cleaned.text.apply(ast.literal_eval)
 cleaned
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -415,13 +398,13 @@ plt.bar(real_text.index, real_text.values)
 
 
     
-![png](output_files/output_12_1.png)
+![png](output_12_1.png)
     
 
 
 
     
-![png](output_files/output_12_2.png)
+![png](output_12_2.png)
     
 
 
@@ -451,7 +434,7 @@ plt.show()
 
 
     
-![png](output_files/output_14_0.png)
+![png](output_14_0.png)
     
 
 
@@ -473,7 +456,7 @@ plt.tight_layout(pad = 0)
 
 
     
-![png](output_files/output_15_0.png)
+![png](output_15_0.png)
     
 
 
