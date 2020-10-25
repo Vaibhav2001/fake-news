@@ -182,12 +182,6 @@ new_news.to_csv("cleaned_data.csv", index=False)
 ```
 
 
-
-
-    '\nnltk.download(\'stopwords\')\nnltk.download(\'punkt\')\n\nimport string\nfrom nltk.corpus import stopwords\nfrom unicodedata import normalize\n\nstop = stopwords.words(\'english\')\nstop.append(\'didn’t\')\n\nnew_news = news[[\'title\', \'text\', \'label\']].dropna()\n\n##string mutation\nnew_news["text"] = new_news["text"].str.lower()\nnew_news["title"] = new_news["title"].str.lower()\nnew_news["text"]  = new_news["text"].str.translate(str.maketrans(\'\', \'\', string.punctuation))\nnew_news["title"]  = new_news["title"].str.translate(str.maketrans(\'\', \'\', string.punctuation))\n\n## getting the stem words\nps = nltk.PorterStemmer()\n\n##making an array (for some reason idk why i did this but fine )\nnew_news[\'title\'] = new_news[\'title\'].apply(lambda row: \' \'.join(ps.stem(w) for w in row.split() if not w in stop and len(w) >= 3 and not any(i.isdigit() for i in w)))\nnew_news[\'text\'] = new_news[\'text\'].apply(lambda row: \' \'.join(ps.stem(w) for w in row.split() if not w in stop and len(w) >= 3 and not any(i.isdigit() for i in w)))\nnew_news.to_csv("cleaned_new.csv", index=False)\n\n'
-
-
-
 ## Analysis on Cleaned Data
 
 
@@ -315,20 +309,6 @@ cleaned_new
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -755,14 +735,6 @@ for name, model in models:
     KNeighborsClassifier: Acurracy: 56.6933867735471
     DecisionTreeClassifier: Acurracy: 80.92184368737475
     RandomForestClassifier: Acurracy: 89.93987975951903
-    /opt/venv/lib/python3.7/site-packages/sklearn/linear_model/_logistic.py:764: ConvergenceWarning: lbfgs failed to converge (status=1):
-    STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-    
-    Increase the number of iterations (max_iter) or scale the data as shown in:
-        https://scikit-learn.org/stable/modules/preprocessing.html
-    Please also refer to the documentation for alternative solver options:
-        https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-      extra_warning_msg=_LOGISTIC_SOLVER_CONVERGENCE_MSG)
     LogisticRegression: Acurracy: 92.14428857715431
     SGDClassifier: Acurracy: 90.92184368737475
     MultinomialNB: Acurracy: 86.27254509018036
